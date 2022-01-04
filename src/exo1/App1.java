@@ -1,5 +1,6 @@
 package exo1;
 
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class App1 {
@@ -24,8 +25,38 @@ public class App1 {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(tronque(15.77777,1));
-
+		
+		double nb = 0;
+		String input;
+		int n;
+		
+		for(int i=0;i<args.length;i+=2) {
+			try {
+			nb=Double.parseDouble(args[i]);
+			}catch(NumberFormatException ex1) {
+				System.out.println("format invalide.");
+				continue;
+			}
+			if(args[i+1].isEmpty())continue;
+			try {
+			n=Integer.parseInt(args[i+1]);
+			System.out.println(tronque(nb, n));
+			}catch(NumberFormatException ex1) {
+				System.out.println("vous devez insérer un entier.");
+				continue;
+			}	
+		}
+		/*Scanner cl=new Scanner(System.in);
+		System.out.print("saisissez un double:");
+		input=cl.next();
+		try {
+		nb=Double.parseDouble(input);
+		System.out.print("le nombre à tronquer :");
+		n=cl.nextInt();
+		System.out.println(tronque(nb,n));
+		}catch(NumberFormatException ex) {
+			System.out.println("Format Invalide.");
+		}*/
 	}
 
 }
